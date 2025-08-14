@@ -7,14 +7,39 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <video
+      id="video-fondo"
+      src="assets/videos/fondo.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+      "
+    ></video>
+
+    <audio src="assets/music/Spooktune.mp3" autoplay loop hidden></audio>
+
+    <header class="main-header">
+      <h1>¡Disfraces Para Pobres!</h1>
+      <p>Gracias por visitarnos, ahí humildemente hacemos disfraces</p>
+    </header>
+
     <section class="productos">
       <div class="tarjeta">
         <img src="assets/img/capitanPeru.jpg" alt="Disfraz Capitán Perú" />
         <h2>Disfraz Capitán Perú</h2>
         <p>
-          ¡Conviértete en el héroe nacional más poderoso y memeado! Ideal para
-          salvar fiestas y repartir justicia con causa peruana. ¡El disfraz que
-          tu abuelita aprobaría!
+          ¡¿Tienes hambre de paloma?! Este disfraz es perfecto para ti, con
+          aerodinamismo , los colores de perukistán y un escudo con la bandera
+          de mi perusito, ¡podrás demostrar que Perú es clave!
         </p>
         <span class="precio">$85.000</span>
         <button>Añadir al carrito</button>
@@ -24,9 +49,8 @@
         <img src="assets/img/jograda.jpg" alt="Disfraz Hog Rider" />
         <h2>Disfraz Hog Rider</h2>
         <p>
-          ¡Hog Rider! Llega a la fiesta gritando y montando tu propio puerco
-          invisible. Perfecto para romper muros y corazones en cualquier
-          reunión.
+          ¡Hog Rider! Llega a la fiesta montando en tu puerco y espanta a todos
+          los mazos de ciclado lento
         </p>
         <span class="precio">$90.000</span>
         <button>Añadir al carrito</button>
@@ -47,9 +71,8 @@
         <img src="assets/img/penijuais.jpg" alt="Disfraz Pennywise" />
         <h2>Disfraz Pennywise</h2>
         <p>
-          ¿Quieres un globo? Asusta a tus amigos y conviértete en el payaso más
-          terrorífico de las novelas de Stephen King. ¡Ideal para fiestas de
-          miedo y para flotar!
+          ¿Quieres un globo? ¿o Psicoactivos? ¿con este disfraz pareceras
+          Pennywise después de un anexo!
         </p>
         <span class="precio">$120.000</span>
         <button>Añadir al carrito</button>
@@ -59,8 +82,7 @@
         <img src="assets/img/pops.jpg" alt="Disfraz Papaleta" />
         <h2>Disfraz Papaleta</h2>
         <p>
-          ¡Azúcar, color y mucha actitud! Sé el personaje más dulce y serio de
-          Un Show Más. Perfecto para los que quieren derretir corazones.
+          Este disfraz no se puede pagar con paletas de naranja. ni lo intentes
         </p>
         <span class="precio">$75.000</span>
         <button>Añadir al carrito</button>
@@ -70,12 +92,64 @@
         <img src="assets/img/walterBlanco.jpg" alt="Disfraz Walter White" />
         <h2>Disfraz Walter White</h2>
         <p>
-          Di mi nombre... ¡y que empiece la fiesta! El disfraz perfecto para los
-          que quieren sentirse genios y peligrosos, sin romper ninguna ley.
+          "Say my name" es el equivalente a "Usted no sabe quien soy yo"
+          curioso, ¿no?
         </p>
         <span class="precio">$110.000</span>
         <button>Añadir al carrito</button>
       </div>
     </section>
+
+    <div style="text-align: center; margin: 40px 0">
+      <button
+        id="jumpscare-btn"
+        style="
+          background: #d32f2f;
+          color: #fff;
+          padding: 14px 28px;
+          font-size: 1.1rem;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background 0.3s;
+        "
+      >
+        No me des click
+      </button>
+      <div id="jumpscare-container" style="display: none">
+        <video
+          id="jumpscare-video"
+          src="assets/videos/jumpscare.mp4"
+          playsinline
+          style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            background: black;
+          "
+        ></video>
+      </div>
+    </div>
+
+    <script>
+      const btn = document.getElementById("jumpscare-btn");
+      const container = document.getElementById("jumpscare-container");
+      const video = document.getElementById("jumpscare-video");
+
+      btn.addEventListener("click", () => {
+        container.style.display = "block";
+        video.currentTime = 0;
+        video.play();
+      });
+
+      video.addEventListener("ended", () => {
+        container.style.display = "none";
+        video.pause();
+        video.currentTime = 0;
+      });
+    </script>
   </body>
 </html>
