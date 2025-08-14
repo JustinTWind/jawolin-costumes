@@ -1,0 +1,155 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+/* ===== Contenedor de tarjetas ===== */
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  
+}
+
+/* ===== Tarjeta ===== */
+.tarjeta {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+/* ===== Imagen del producto ===== */
+.tarjeta img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; 
+  display: block; 
+}
+
+
+/* ===== Título ===== */
+.tarjeta h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+/* ===== Descripción ===== */
+.tarjeta p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* ===== Precio ===== */
+.precio {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* ===== Botón ===== */
+.tarjeta button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+/* ===== Media Queries ===== */
+
+
+/* Desktop: fondo azul, texto blanco */
+@media (min-width: 1025px) {
+  .tarjeta {
+    background-color: #0056b3; 
+    color: white;
+  }
+
+  .tarjeta p {
+  color: #ffffff;
+}
+
+  .tarjeta button {
+    background-color: #ffcc00; 
+    color: black;
+  }
+}
+
+/* Tablet: fondo verde, texto blanco */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tarjeta {
+    background-color: #198754; /* Verde */
+    color: white;
+  }
+
+    .tarjeta p {
+  color: #ffffff;
+}
+
+  .tarjeta button {
+    background-color: #ffc107; 
+    color: black;
+  }
+}
+
+/* Móvil: fondo amarillo, texto negro */
+@media (max-width: 767px) {
+  .tarjeta {
+    background-color: #ffc107; 
+    color: black;
+  }
+
+  .tarjeta p {
+  color: #000000;
+}
+
+  .tarjeta button {
+    background-color: #0056b3; 
+    color: white;
+  }
+}
+
+/* ===== Hover de la tarjeta ===== */
+.tarjeta {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Hover del botón ===== */
+.tarjeta button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tarjeta button:hover {
+  background-color: #ff5722; 
+  transform: scale(1.1); 
+}
+
+/* ===== Zoom en la imagen ===== */
+.tarjeta img {
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover img {
+  transform: scale(1.05);
+}
+
